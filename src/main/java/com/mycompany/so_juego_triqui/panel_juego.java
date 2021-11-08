@@ -1,6 +1,7 @@
 package com.mycompany.so_juego_triqui;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 /**
@@ -10,6 +11,7 @@ import javax.swing.JLabel;
 public class panel_juego extends javax.swing.JFrame {
 
    String initial_shift= "X";
+   String next_shift = "O";
     /**
      * This array "board_spaces" it's likea table array and it will check the turns and 
  determinate if some user press one buton
@@ -32,6 +34,9 @@ public class panel_juego extends javax.swing.JFrame {
         {1,5,9},
         {3,5,7}   
     };
+    
+    boolean checker= true;
+    
     public panel_juego() {
         initComponents();
         System.out.println(win_moves[7][1]);
@@ -208,7 +213,7 @@ public class panel_juego extends javax.swing.JFrame {
                     .addComponent(Espacio_triqui07, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Espacio_triqui08, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Espacio_triqui09, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -256,7 +261,7 @@ public class panel_juego extends javax.swing.JFrame {
                         .addComponent(Casila_turno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,14 +273,15 @@ public class panel_juego extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel6)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
                         .addComponent(Casilla_ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
-                        .addGap(52, 52, 52))))
+                        .addGap(76, 76, 76))))
         );
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -290,18 +296,21 @@ public class panel_juego extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -383,9 +392,11 @@ public class panel_juego extends javax.swing.JFrame {
         Make_movement(9);
         Check_winner();
     }//GEN-LAST:event_Espacio_triqui09MousePressed
+/*    */
+   
     
     public void Make_movement (int casilla){
-       if (board_spaces[casilla-1].getText().equals("")){
+       if (board_spaces[casilla-1].getText().equals("")&&checker){
            board_spaces[casilla-1].setText(initial_shift);
            Check_player();
        }
@@ -407,12 +418,14 @@ public class panel_juego extends javax.swing.JFrame {
                board_spaces[win_moves[i][1]-1].setBackground(Color.darkGray);
                board_spaces[win_moves[i][2]-1].setBackground(Color.darkGray);
                Casilla_ganador.setText("X");
+               checker = false; 
            }
            if(board_spaces[win_moves[i][0]-1].getText().equals("O")&&board_spaces[win_moves[i][1]-1].getText().equals("O")&&board_spaces[win_moves[i][2]-1].getText().equals("O")){
                board_spaces[win_moves[i][0]-1].setBackground(Color.darkGray);
                board_spaces[win_moves[i][1]-1].setBackground(Color.darkGray);
                board_spaces[win_moves[i][2]-1].setBackground(Color.darkGray);   
                Casilla_ganador.setText("O");
+               checker = false; 
            }
        } 
     }
