@@ -1,5 +1,6 @@
 package com.mycompany.so_juego_triqui;
 
+import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
@@ -64,8 +65,8 @@ public class panel_juego extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Casilla_ganador = new javax.swing.JLabel();
+        Casila_turno = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -222,15 +223,15 @@ public class panel_juego extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel4.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setOpaque(true);
+        Casilla_ganador.setBackground(new java.awt.Color(153, 153, 153));
+        Casilla_ganador.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
+        Casilla_ganador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Casilla_ganador.setOpaque(true);
 
-        jLabel5.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel5.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setOpaque(true);
+        Casila_turno.setBackground(new java.awt.Color(153, 153, 153));
+        Casila_turno.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
+        Casila_turno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Casila_turno.setOpaque(true);
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
@@ -248,11 +249,11 @@ public class panel_juego extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Casilla_ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Casila_turno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -263,14 +264,14 @@ public class panel_juego extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Casila_turno, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Casilla_ganador, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel7)
@@ -391,21 +392,27 @@ public class panel_juego extends javax.swing.JFrame {
     }
     public void Check_player (){
         if (initial_shift.equals("X")){
-            initial_shift="O";   
+            initial_shift="O";
+            Casila_turno.setText("O");
         }else {
             initial_shift="X";
+             Casila_turno.setText("X");
         }
     }
     
     public void Check_winner() {
        for (int i= 0; i<win_moves.length; i++){
            if(board_spaces[win_moves[i][0]-1].getText().equals("X")&&board_spaces[win_moves[i][1] -1].getText().equals("X")&&board_spaces[win_moves[i][2]-1].getText().equals("X")){
-               //Casilla_ganador_jugador.setText(initial_shift);
-               System.out.println("GanoX");
+               board_spaces[win_moves[i][0]-1].setBackground(Color.darkGray);
+               board_spaces[win_moves[i][1]-1].setBackground(Color.darkGray);
+               board_spaces[win_moves[i][2]-1].setBackground(Color.darkGray);
+               Casilla_ganador.setText("X");
            }
            if(board_spaces[win_moves[i][0]-1].getText().equals("O")&&board_spaces[win_moves[i][1]-1].getText().equals("O")&&board_spaces[win_moves[i][2]-1].getText().equals("O")){
-               //Casilla_ganador_jugador.setText(initial_shift);
-              System.out.println("GanoO");
+               board_spaces[win_moves[i][0]-1].setBackground(Color.darkGray);
+               board_spaces[win_moves[i][1]-1].setBackground(Color.darkGray);
+               board_spaces[win_moves[i][2]-1].setBackground(Color.darkGray);   
+               Casilla_ganador.setText("O");
            }
        } 
     }
@@ -443,6 +450,8 @@ public class panel_juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Casila_turno;
+    private javax.swing.JLabel Casilla_ganador;
     private javax.swing.JLabel Espacio_triqui01;
     private javax.swing.JLabel Espacio_triqui02;
     private javax.swing.JLabel Espacio_triqui03;
@@ -455,8 +464,6 @@ public class panel_juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
